@@ -4,7 +4,7 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import DataList from '../UI/List/DataList';
-
+import CloseIcon from '@material-ui/icons/Close';
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
@@ -25,6 +25,17 @@ const useStyles = makeStyles((theme) => ({
     borderRadius:'5px'
     // overflowY:'scroll'
   },
+  closeIcon:{
+    cursor:'pointer',
+    position: 'absolute',
+    color: 'white',
+    padding: '12px',
+    '&:hover':{
+      opacity:'0.7',
+      background: 'rgba(255,255,255,0.1)'
+    }
+}
+  
 }));
 
 function CustomModal(props) {
@@ -46,7 +57,8 @@ function CustomModal(props) {
       >
         <Fade in={props.open}>
         
-          <div className={classes.paper}>          
+          <div className={classes.paper}>   
+      <CloseIcon className={classes.closeIcon} onClick={props.handleClose}/>
             <DataList data={props.data}></DataList>
           </div>
         </Fade>
