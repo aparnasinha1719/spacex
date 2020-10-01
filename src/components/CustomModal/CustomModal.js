@@ -27,9 +27,11 @@ const useStyles = makeStyles((theme) => ({
   },
   closeIcon:{
     cursor:'pointer',
-    position: 'absolute',
     color: 'white',
+    marginTop:'-8px',
+    marginRight:'-15px',
     padding: '12px',
+    float:'right',
     '&:hover':{
       opacity:'0.7',
       background: 'rgba(255,255,255,0.1)'
@@ -58,8 +60,10 @@ function CustomModal(props) {
         <Fade in={props.open}>
         
           <div className={classes.paper}>   
-      <CloseIcon className={classes.closeIcon} onClick={props.handleClose}/>
-            <DataList data={props.data}></DataList>
+            <DataList data={props.data}>
+          <CloseIcon className={classes.closeIcon} onClick={props.handleClose}/>
+
+            </DataList>
           </div>
         </Fade>
       </Modal>

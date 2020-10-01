@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
 	list: {
 		overflowY: 'scroll',
 		overflowX: 'hidden',
-        height: 'calc(70vh - 42px)',
+		height: 'calc(70vh - 42px)',
+		width:'calc(100% - 32px)',
         fontSize: '0.8rem',
 		padding: theme.spacing(2, 0, 0, 4),
     },
@@ -32,6 +33,7 @@ function DataList(props) {
 		<Fragment>
 			<Typography variant="h6" className={classes.heading} gutterBottom>
 				Details
+				{props.children}
 			</Typography>
 			<Box className={classes.list}>
 				{Object.entries(props.data).filter(([_, v]) => v !== null).map(([key, value], index) =>(value && (value.length >= 0 || typeof value === 'boolean' || typeof value === 'number' ))? (

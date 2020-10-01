@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component ,Fragment} from 'react'
 import { connect } from 'react-redux';
 
 import {columns} from './payloadConfig';
+import Loading from '../../components/Loading/Loading';
 import BaseTable from '../../components/BaseTable/BaseTable';
 import * as payloadActions from '../../store/actions/index';
 export class Payload extends Component {
@@ -11,7 +12,10 @@ export class Payload extends Component {
     }
     render() {
         return (
+            <Fragment>
+            <Loading open={this.props.loading}/>
             <BaseTable columns={columns} rows={this.props.payloads} showDetailBtn={true}></BaseTable>
+            </Fragment>
         )
     }
 }
