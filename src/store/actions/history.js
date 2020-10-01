@@ -27,7 +27,8 @@ export const history=()=>{
             axios.get(url+'history').then(response=>{
                 dispatch(getHistorySuccess(response.data))
             }).catch(response=>{
-                dispatch(getHistoryFail(response))
+                
+                dispatch(getHistoryFail(response.message))
             })
         })
     } 
