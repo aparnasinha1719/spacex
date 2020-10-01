@@ -21,7 +21,8 @@ export class Payload extends Component {
 }
 const mapStateToProps=(state)=>{
     return{
-        payloads:state.payload.data
+        payloads:state.payload.data,
+        loading:state.payload.loading
     }
     }
     const mapDispatchToProps=(dispatch)=>{
